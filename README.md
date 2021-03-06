@@ -1,0 +1,3 @@
+# DataStructurePractice
+
+just practice
