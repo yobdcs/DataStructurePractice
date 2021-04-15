@@ -21,9 +21,9 @@ public class SumOfUniqueElements {
 				continue;
 			
 			if(map.containsKey(nums[i])) {
-				map2.put(nums[i], i);
 				map.remove(nums[i]);
 				sum -= nums[i];
+				map2.put(nums[i], i);
 				continue;
 			}
 			
