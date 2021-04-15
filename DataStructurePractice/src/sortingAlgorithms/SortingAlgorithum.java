@@ -1,5 +1,7 @@
 package sortingAlgorithms;
 
+import java.util.Arrays;
+
 public class SortingAlgorithum {
 	
 	public int[] bubbleSort(int[] array) {
@@ -90,10 +92,31 @@ public class SortingAlgorithum {
 	}
 
 //------------------------------------------------------------------------------------
-	public long[] quickSort(int[] a1) {
+	public int[] quickSort(int[] array) {		
+		quickSort(array, 0, array.length - 1);
 		
+		return array;
+	}
+	
+//	{3, 2, 7, 1, 11, 8, 7, 2}
+	private void quickSort(int[] array, int start, int end) {
+		if(start >= end)
+			return;
 		
-		return null;
+		var b = partition(array, start, end);
+		
+		quickSort(array, start, b - 1);
+		quickSort(array, b + 1, end);
+	}
+	
+	private int partition(int[] array, int s, int e) {
+		var p = array[e];
+		var b = s - 1;
+		for(int i = 0 ; s < array.length ; s ++) {
+			if(array[i] > p)
+				swap(array, i, ++ b);
+		}
+		return b;
 	}
 	
 }

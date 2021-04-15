@@ -6,7 +6,7 @@ public class HashSetTest {
 
 	public static void main(String[] args) {
 		
-		Set<Integer> set = new HashSet<Integer>();
+//		Set<Integer> setl = new HashSet<Integer>();
 		Set<Integer> setl = new LinkedHashSet<Integer>();
 		
 		int[] num = {1, 5, 3, 5, 7, 4, 9, 1, 9};
