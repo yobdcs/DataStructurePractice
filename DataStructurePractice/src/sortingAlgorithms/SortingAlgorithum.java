@@ -1,7 +1,5 @@
 package sortingAlgorithms;
 
-import java.util.Arrays;
-
 public class SortingAlgorithum {
 	
 	public int[] bubbleSort(int[] array) {
@@ -92,31 +90,33 @@ public class SortingAlgorithum {
 	}
 
 //------------------------------------------------------------------------------------
-	public int[] quickSort(int[] array) {		
-		quickSort(array, 0, array.length - 1);
+	public int[] quickSort(int[] array) {
+		return quickSort(array, 0, array.length - 1);
+	}
+	
+	private int[] quickSort(int[] array, int start, int end) {
+		if(start >= end)
+			return array;
+		
+		var boundary = partition(array, start, end);
+		
+		quickSort(array, start, boundary - 1);
+		quickSort(array, boundary + 1, end);
 		
 		return array;
 	}
 	
-//	{3, 2, 7, 1, 11, 8, 7, 2}
-	private void quickSort(int[] array, int start, int end) {
-		if(start >= end)
-			return;
-		
-		var b = partition(array, start, end);
-		
-		quickSort(array, start, b - 1);
-		quickSort(array, b + 1, end);
-	}
+//	{15, 6, 3, 1, 22, 10, 13}
 	
-	private int partition(int[] array, int s, int e) {
-		var p = array[e];
-		var b = s - 1;
-		for(int i = 0 ; s < array.length ; s ++) {
-			if(array[i] > p)
-				swap(array, i, ++ b);
+	private int partition(int[] array, int start, int end) {
+		var pivit = array[end]; 
+		var i = start;
+		var boundary = start - 1;
+		for(; i <= end ; i ++) {			
+			if(array[i] <= pivit)
+				swap(array, i, ++ boundary);
 		}
-		return b;
+		return boundary;
 	}
 	
 }
