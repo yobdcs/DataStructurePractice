@@ -1,6 +1,7 @@
 package sortingAlgorithms;
 
-import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
 
 public class SortingAlgorithum {
 	
@@ -101,7 +102,7 @@ public class SortingAlgorithum {
 		
 		return quickSort(array, 0, array.length - 1);
 	}
-	
+
 	private int[] quickSort(int[] array, int start, int end) {
 		if(start >= end)
 			return array;
@@ -128,10 +129,10 @@ public class SortingAlgorithum {
 //------------------------------------------------------------------------------------
 // non-comparison sorts
 	
-	public int[] countingSort(int[] array) {
-		int[] temp = new int[23];
-		for(int i = 0 ; i < array.length ; i ++)
-			temp[array[i]] += 1;
+	public int[] countingSort(int[] array, int max) {
+		int[] temp = new int[max + 1];
+		for(int item : array)
+			temp[item] ++;
 
 		int gap = 0;
 		for(int i = 0; i < temp.length ; i ++) {
@@ -149,4 +150,51 @@ public class SortingAlgorithum {
 		}
 		return array;
 	}
+
+//------------------------------------------------------------------------------------	
+	public int[] bucketSort(int[] array, int numOfbucket) {
+		var buckets = createBuckets(array, numOfbucket);
+		
+		int index = 0;
+		for(int i = 0 ; i < numOfbucket ; i ++) {
+			if(buckets[i] == null)
+				buckets[i] = new LinkedList<Integer>();
+			
+			if(buckets[i].size() == 1) {
+				array[index ++] = buckets[i].get(0);
+				continue;
+			}
+
+			for(var item : insertionSortI(buckets[i].toArray(new Integer[0])))
+				array[index ++] = item;
+		}			
+		return array;
+	}
+	
+	private List<Integer>[] createBuckets(int[] array, int numOfbucket){
+		@SuppressWarnings("unchecked")
+		List<Integer>[] buckets = new LinkedList[numOfbucket];
+
+		for(int i = 0 ; i < array.length ; i ++) {
+			if(buckets[array[i] / numOfbucket] == null)
+				buckets[array[i] / numOfbucket] = new LinkedList<Integer>();
+			
+			buckets[array[i] / numOfbucket].add(array[i]);
+		}
+		return buckets;
+	}
+	
+	private Integer[] insertionSortI(Integer[] array) {
+		for(int i = 1 ; i < array.length ; i ++) {
+			int temp = array[i];
+			int j = i - 1;
+			while(j >= 0 && temp < array[j]) {
+				array[j + 1] = array[j];
+				j --;
+			}
+			array[j + 1] = temp;
+		}
+		return array;
+	}
+
 }
