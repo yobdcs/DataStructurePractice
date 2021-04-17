@@ -14,7 +14,8 @@ public class SortingTest {
 //		System.out.println("selection sort: "+ Arrays.toString(sa.selectionSort(a1)));
 //		System.out.println("insertion sort: "+ Arrays.toString(sa.insertionSort(a1)));
 //		System.out.println("merge sort: "+ Arrays.toString(sa.mergeSort(a1)));
-		System.out.println("quick sort: "+ Arrays.toString(sa.quickSort(a1)));
+//		System.out.println("quick sort: "+ Arrays.toString(sa.quickSort(a1)));
+		System.out.println("counting sort: "+ Arrays.toString(sa.countingSort(a1)));
 	}
 
 }

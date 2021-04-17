@@ -1,6 +1,11 @@
 package sortingAlgorithms;
 
+import java.util.Arrays;
+
 public class SortingAlgorithum {
+	
+//------------------------------------------------------------------------------------
+// comparison sorts
 	
 	public int[] bubbleSort(int[] array) {
 		for(int i = 0 ; i < array.length ; i ++) {
@@ -91,6 +96,9 @@ public class SortingAlgorithum {
 
 //------------------------------------------------------------------------------------
 	public int[] quickSort(int[] array) {
+		if(array == null)
+			throw new IllegalStateException();
+		
 		return quickSort(array, 0, array.length - 1);
 	}
 	
@@ -105,9 +113,7 @@ public class SortingAlgorithum {
 		
 		return array;
 	}
-	
-//	{15, 6, 3, 1, 22, 10, 13}
-	
+
 	private int partition(int[] array, int start, int end) {
 		var pivit = array[end]; 
 		var i = start;
@@ -118,5 +124,29 @@ public class SortingAlgorithum {
 		}
 		return boundary;
 	}
+
+//------------------------------------------------------------------------------------
+// non-comparison sorts
 	
+	public int[] countingSort(int[] array) {
+		int[] temp = new int[23];
+		for(int i = 0 ; i < array.length ; i ++)
+			temp[array[i]] += 1;
+
+		int gap = 0;
+		for(int i = 0; i < temp.length ; i ++) {
+			if(temp[i] == 0) {
+				gap ++;
+				continue;
+			}
+			
+			int j = 0;
+			for(; j < temp[i] ; j ++)
+				array[i + j - gap] = i;
+
+			if(j > 1)
+				gap -= j - 1;
+		}
+		return array;
+	}
 }
