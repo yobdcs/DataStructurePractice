@@ -84,6 +84,41 @@ public class SearchingAlgorithum {
 		}	
 		return ternarySearchRR(left, right, array, target);
 	}
+
+//------------------------------------------------------------------------------------
+	public int jumpSearchI(int[] array, int target) {
+		int block = (int) Math.sqrt(array.length);
+		int start = 0;
+		int next = start + block;
+		
+		while(start < array.length && target > array[next - 1]) {
+			if(target == array[next - 1])
+				return next - 1;
+			
+			start = next;
+			next += block;
+			
+			if(next > array.length - 1)
+				next = array.length;
+		}
+
+		while(start < next) {
+			if(target == array[start])
+				return start;
+					
+			start ++;
+		}
+		return -1;
+	}
 	
-	
+//------------------------------------------------------------------------------------
+	public int exponentialSearch(int[] array, int target) {
+		int e = 2;
+		while(e < array.length && target > array[e - 1])
+			e *= 2;
+		
+		int right = Math.min(e, array.length - 1);
+		
+		return binarySearchRR(0, right, array, target);
+	}
 }
