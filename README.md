@@ -1,3 +1,3 @@
-# DataStructurePractice
+# DataStructure&Algorithms Practice
 
-just practice
+learning...
