@@ -20,9 +20,8 @@ public class HashTableTest {
 	
 		ht.remove(7);
 //		ht.remove(10825);
-		System.out.println(ht.get(10825));
+		System.out.println(ht.get(421));
 
-		
 	}
 
 }

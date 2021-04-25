@@ -25,35 +25,6 @@ public class HashTable {
 	private Node temp_back;
 	private int array_size = 6;
 	
-	private boolean isEmpty(int k) {
-		return L[getHash(k)] == null;
-	}
-	
-	private boolean lastOfChain() {
-		return temp.next == null;
-	}
-	
-	private boolean hashNagtive(int k) {
-		return k < 0;
-	}
-	
-	private int getHash(int k) {
-		return k % array_size;
-	}
-	
-	private void chaining(Node node) {
-		temp = L[getHash(node.value.k)];
-		
-		while(!lastOfChain()) {
-			if(temp.value.k == node.value.k) {
-				temp.value.v = node.value.v;
-				return;				
-			}
-			temp = temp.next;
-		}
-		temp.next = node;
-	}
-	
 	public HashTable() {
 		L = new Node[array_size];
 	}
@@ -126,4 +97,34 @@ public class HashTable {
 		return L[getHash(k)].value.v;
 	}
 	
+	private boolean isEmpty(int k) {
+		return L[getHash(k)] == null;
+	}
+	
+	private boolean lastOfChain() {
+		return temp.next == null;
+	}
+	
+	private boolean hashNagtive(int k) {
+		return k < 0;
+	}
+	
+	private int getHash(int k) {
+		return k % array_size;
+	}
+	
+	private void chaining(Node node) {
+		temp = L[getHash(node.value.k)];
+		
+		while(!lastOfChain()) {
+			if(temp.value.k == node.value.k) {
+				temp.value.v = node.value.v;
+				return;				
+			}
+			temp = temp.next;
+		}
+		temp.next = node;
+	}
+	
 }
+

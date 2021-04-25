@@ -13,45 +13,45 @@ public class Stack {
 	}
 	
 	public void push(int item) {
-		if(isEmpty()) {
+		if(isEmpty())
 			array = new int[1];
-		}
+
 		if(pointer == array.length) {
 			int[] temp = new int[pointer + 1];
-			for(int i = 0 ; i < pointer ; i++) {
+			for(int i = 0 ; i < pointer ; i++)
 				temp[i] = array[i];
-			}
+
 			array = temp;
 		}
 		array[pointer++] = item;
 	}
 	
 	public int pop() {
-		if(isEmpty()) {
+		if(isEmpty())
 			throw new NoSuchElementException();
-		}
+
 		int p = peek();
 		int[] temp = new int[array.length - 1];
-		for(int i = 0 ; i < array.length - 1 ; i++) {
+		for(int i = 0 ; i < array.length - 1 ; i++)
 			temp[i] = array[i];
-		}
+		
 		array = temp;
 		pointer --;
 		return p;
 	}
 	
 	public int peek() {
-		if(isEmpty()) {
+		if(isEmpty())
 			throw new NoSuchElementException();
-		}
+
 		int p = array[pointer - 1];
 		return p;
 	}
 	
 	public boolean isEmpty() {
-		if(array == null || array.length == 0) {
+		if(array == null || array.length == 0)
 			return true;
-		}
+
 		return false;
 	}
 

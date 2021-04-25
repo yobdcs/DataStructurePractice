@@ -17,14 +17,6 @@ public class LinkedList {
 	private Node last;
 	private int size = 0; 
 	
-	private boolean isEmpty() {
-		return first == null;
-	}
-	
-	private boolean onlyOneItem() {
-		return first == last;
-	}
-	
 	public void addLast(int item) {
 		Node node = new Node(item);
 		
@@ -205,7 +197,6 @@ public class LinkedList {
 			
 			if(forward == null)
 				throw new IllegalArgumentException();
-
 		}
 		
 		while(forward.next != null) {
@@ -216,5 +207,14 @@ public class LinkedList {
 		return back.value;
 	}
 
+	private boolean isEmpty() {
+		return first == null;
+	}
+	
+	private boolean onlyOneItem() {
+		return first == last;
+	}
+	
 }
+
 
