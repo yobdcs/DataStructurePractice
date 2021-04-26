@@ -6,6 +6,7 @@ import java.util.Collections;
 import java.util.Deque;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
 
@@ -82,6 +83,58 @@ public class StringManipulationAlgorithms {
 			return false;
 			
 		return str1.length() == str2.length() && (str1 + str1).contains(str2);
+	}
+	
+	public String RemoveDuplicates(String str) {
+		if(checkStr(str))
+			return "";
+		
+		Set<Character> lhset = new LinkedHashSet<Character>();
+		for(char ch : str.toCharArray())
+			lhset.add(ch);
+		
+		StringBuilder sb = new StringBuilder();
+		for(char ch : lhset.toArray(new Character[0]))
+			sb.append(ch);
+			
+		return sb.toString();
+	}
+	
+	public String RemoveDuplicates2(String str) {
+		if(checkStr(str))
+			return "";
+		
+		Set<Character> hset = new HashSet<Character>();
+		StringBuilder sb = new StringBuilder();
+		for(char ch : str.toCharArray()) {
+			if(hset.contains(ch))
+				continue;
+			
+			hset.add(ch);
+			sb.append(ch);
+		}
+		return sb.toString();
+	}
+	
+	public Character MostRepeatedCharacter(String str) {
+		if(checkStr(str))
+			throw new IllegalArgumentException();
+		
+		Map<Character, Integer> map = new HashMap<Character, Integer>();
+		int max = 0;
+		char result = ' ';
+		for(char ch : str.toCharArray()) {
+			if(!map.containsKey(ch))
+				map.put(ch, 1);
+			else
+				map.replace(ch, map.get(ch) + 1);
+			
+			if(map.get(ch) > max) {
+				max = map.get(ch);
+				result = ch;
+			}
+		}
+		return result;
 	}
 	
 	private boolean checkStr(String str) {
