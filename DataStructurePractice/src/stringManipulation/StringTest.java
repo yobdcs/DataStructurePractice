@@ -18,6 +18,7 @@ public class StringTest {
 //		System.out.println(sma.RemoveDuplicates(s));
 //		System.out.println(sma.RemoveDuplicates2(s));
 		System.out.println(sma.MostRepeatedCharacter(s));
+
 	}
 
 }
