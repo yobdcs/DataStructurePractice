@@ -12,7 +12,7 @@ import java.util.Set;
 
 public class StringManipulationAlgorithms {
 	
-	public int CountVowels(String str) {
+	public int countVowels(String str) {
 		if(checkStr(str))
 			return 0;
 		
@@ -30,7 +30,7 @@ public class StringManipulationAlgorithms {
 		return count;
 	}
 	
-	public String ReverseString(String str) {
+	public String reverseString(String str) {
 		if(checkStr(str))
 			return "";
 		
@@ -45,7 +45,7 @@ public class StringManipulationAlgorithms {
 		return sb.toString();
 	}
 	
-	public String ReverseString2(String str) {
+	public String reverseString2(String str) {
 		if(checkStr(str))
 			return "";
 		
@@ -56,7 +56,7 @@ public class StringManipulationAlgorithms {
 		return sb.toString();
 	}
 	
-	public String ReverseWords(String str) {
+	public String reverseWords(String str) {
 		if(checkStr(str))
 			return "";
 		
@@ -68,7 +68,7 @@ public class StringManipulationAlgorithms {
 		return sb.toString().strip();
 	}
 	
-	public String ReverseWords2(String str) {
+	public String reverseWords2(String str) {
 		if(checkStr(str))
 			return "";
 		
@@ -78,14 +78,14 @@ public class StringManipulationAlgorithms {
 		return String.join(" ", words);
 	}
 
-	public boolean Rotations2(String str1, String str2) {
+	public boolean rotations2(String str1, String str2) {
 		if(str1 == null || str2 == null)
 			return false;
 			
 		return str1.length() == str2.length() && (str1 + str1).contains(str2);
 	}
 	
-	public String RemoveDuplicates(String str) {
+	public String removeDuplicates(String str) {
 		if(checkStr(str))
 			return "";
 		
@@ -100,7 +100,7 @@ public class StringManipulationAlgorithms {
 		return sb.toString();
 	}
 	
-	public String RemoveDuplicates2(String str) {
+	public String removeDuplicates2(String str) {
 		if(checkStr(str))
 			return "";
 		
@@ -116,7 +116,7 @@ public class StringManipulationAlgorithms {
 		return sb.toString();
 	}
 	
-	public Character MostRepeatedCharacter(String str) {
+	public Character mostRepeatedCharacter(String str) {
 		if(checkStr(str))
 			throw new IllegalArgumentException();
 		
@@ -135,6 +135,83 @@ public class StringManipulationAlgorithms {
 			}
 		}
 		return result;
+	}
+	
+	public String sentenceCapitalization(String str) {
+		if(checkStr(str))
+			throw new IllegalArgumentException();
+		
+		StringBuilder sb = new StringBuilder();
+		for(String word : str.strip().split(" ")) {
+			if(word.isEmpty())
+				continue;
+			
+			sb.append(word.substring(0, 1).toUpperCase() + word.substring(1).toLowerCase() + " ");
+		}
+		return sb.toString().strip();
+	}
+	
+	public String sentenceCapitalization2(String str) {
+		if(str == null || str.strip() == "")
+			return "";
+
+		var words = str.strip().replaceAll(" +", " ").split(" ");
+		for(int i = 0 ; i < words.length ; i ++)
+			words[i] = words[i].substring(0, 1).toUpperCase() + words[i].substring(1).toLowerCase();
+		
+		return String.join(" ", words);
+	}
+	
+	public boolean checkAnagram(String str1, String str2) {
+//		if(str1 == null || str2 == null || str1.length() != str2.length())
+		if(str1 == null || str2 == null)
+			return false;
+		
+		var chars1 = str1.toLowerCase().toCharArray();
+		var chars2 = str2.toLowerCase().toCharArray();
+		Arrays.sort(chars1);
+		Arrays.sort(chars2);
+		
+		return Arrays.equals(chars1, chars2);
+	}
+	
+	public boolean checkAnagram2(String str1, String str2) {
+		int[] freqArr = new int[26];
+		
+		str1 = str1.toLowerCase();
+		for(int i = 0 ; i < str1.length() ; i ++)
+			freqArr[str1.charAt(i) - 'a'] ++;
+		
+		str2 = str2.toLowerCase();
+		for(int i = 0 ; i < str2.length() ; i ++) {
+			if(freqArr[str2.charAt(i) - 'a'] == 0)
+				return false;
+				
+			freqArr[str2.charAt(i) - 'a'] --;
+		}
+		return true;
+	}
+	
+	public boolean checkPalindrome(String str) {
+		if(str == null)
+			return false;
+		
+		for(int i = 0 ; i < str.length() ; i ++) {
+			if(i >= str.length() - i - 1)
+				break;
+			
+			if(str.charAt(i) != str.charAt(str.length() - i - 1))
+				return false;
+		}	
+		return true;
+	}
+	
+	public boolean checkPalindrome2(String str) {	
+		if(str == null)
+			return false;
+		
+		var sb = new StringBuilder(str);	
+		return str.equals(sb.reverse().toString());
 	}
 	
 	private boolean checkStr(String str) {

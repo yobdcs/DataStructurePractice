@@ -7,18 +7,25 @@ public class StringTest {
 		
 //		var s = "hello world";
 //		var s = "Trees are beautiful";	
-		var s = "Hellooo!!";
+//		var s = "Hellooo!!";
+//		var s = "  trees    are        beautiful  ";	
+		var s = "  toDay    iS  a  GReaT     daY    ";	
 		
-//		System.out.println(sma.CountVowels(s));
-//		System.out.println(sma.ReverseString(s));
-//		System.out.println(sma.ReverseString2(s));
-//		System.out.println(sma.ReverseWords(s));
-//		System.out.println(sma.ReverseWords2(s));
-//		System.out.println(sma.Rotations("ABCD", "DABC"));
-//		System.out.println(sma.RemoveDuplicates(s));
-//		System.out.println(sma.RemoveDuplicates2(s));
-		System.out.println(sma.MostRepeatedCharacter(s));
-
+//		System.out.println(sma.countVowels(s));
+//		System.out.println(sma.reverseString(s));
+//		System.out.println(sma.reverseString2(s));
+//		System.out.println(sma.reverseWords(s));
+//		System.out.println(sma.reverseWords2(s));
+//		System.out.println(sma.rotations("ABCD", "DABC"));
+//		System.out.println(sma.removeDuplicates(s));
+//		System.out.println(sma.removeDuplicates2(s));
+//		System.out.println(sma.mostRepeatedCharacter(s));
+//		System.out.println(sma.sentenceCapitalization(s));
+//		System.out.println(sma.sentenceCapitalization2(s));
+//		System.out.println(sma.checkAnagram("listen", "silent"));
+//		System.out.println(sma.checkAnagram2("lisTen", "silent"));
+//		System.out.println(sma.checkPalindrome("madam"));
+		System.out.println(sma.checkPalindrome2("madam"));
 	}
 
 }
