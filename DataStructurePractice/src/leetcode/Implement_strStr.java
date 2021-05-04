@@ -16,29 +16,51 @@ public class Implement_strStr {
 	*/
 
 	public static void main(String[] args) {
-		String haystack = "hello";
-		String needle = "el";
+//		String haystack = "hello";
+//		String needle = "el";
+		String haystack = "mississippi";
+		String needle = "issip";
 		
-		System.out.println(strStr(haystack, needle));
+		System.out.println(strStr2(haystack, needle));
 	}
 
 	private static int strStr(String haystack, String needle) {
 		if(needle.isEmpty())
 			return 0;
-		
-		int index = 0;
+
+		int index = -1;
 		int j = 0;
 		for(int i = 0 ; i < haystack.length() ; i ++) {
-			if(haystack.charAt(i) == needle.charAt(j)) {
-				if(j == needle.length() - 1 && needle.length() == 1)
-					return i;
+			char h = haystack.charAt(i);
+			char n = needle.charAt(j);
+			if(j > 0 && h != n && 
+						haystack.charAt(i - 1) == needle.charAt(j - 1)) {
+				i = index;
+				j = 0;
+				index = -1;
+				continue;
+			}
+			
+			if(h == n) {
+				if(index == -1)
+					index = i;
 				
 				if(j == needle.length() - 1)
-					return index;
-				
-				index = i;
-				j ++;
+					return i - needle.length() + 1;
+
+				j ++;	
 			}
+		}
+		return -1;
+	}
+	
+	private static int strStr2(String haystack, String needle) {
+		if(needle.isEmpty())
+			return 0;
+		
+		for(int i = 0 ; i < haystack.length() ; i ++) {
+			if(i + needle.length() <= haystack.length() && haystack.substring(i, i + needle.length()).equals(needle))
+				return i;
 		}
 		return -1;
 	}
