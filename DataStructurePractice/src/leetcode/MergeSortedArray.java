@@ -19,15 +19,26 @@ public class MergeSortedArray {
 		int m = 3;
 		int n = 3;
 
+//		int[] nums1 = {0};
+//		int[] nums2 = {1};
+//		int m = 0;
+//		int n = 1;
+
 		mergeSortedArray(nums1, m, nums2, n);
 		System.out.println(Arrays.toString(nums1));
 	}
 
 	private static void mergeSortedArray(int[] nums1, int m, int[] nums2, int n) {
+		if(nums2.length == 0)
+			return;
+		
 		int i1 = m - 1;
-		int i2 = n - 1;
-		for(int i = nums1.length - 1 ; i <= 0 ; i --) {
-			if(nums1[i1] > nums2[i2])
+		int i2 = n - 1;		
+		for(int i = nums1.length - 1 ; i >= 0 ; i --) {
+			if(i2 < 0)
+				return;
+			
+			if(i1 >= 0 && nums1[i1] > nums2[i2])
 				nums1[i] = nums1[i1 --];
 			else
 				nums1[i] = nums2[i2 --];

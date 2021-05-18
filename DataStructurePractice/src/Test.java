@@ -1,35 +1,26 @@
 public class Test {
 
 	public static void main(String[] args) {
-		var time1 = System.nanoTime();
-		multitable(1, 1);
-		var time2 = System.nanoTime();
-		
-//		var time1 = System.nanoTime();
-//		multitable2();
-//		var time2 = System.nanoTime();
 
-		System.out.println(time2 - time1);
+		long data = 21474836;
+		
+		var a = longtoBytes(data);
+
+		System.out.println(4);
+		
 	}
 	
-	private static void multitable(int i, int j) {
-		if(i > 9)
-			return;
-			
-		if(j > 9) {
-			multitable(i + 1, 1);
-			return;
+	private static byte[] longtoBytes(long data) {
+		 return new byte[]{
+		 (byte) ((data >> 56) & 0xff),
+		 (byte) ((data >> 48) & 0xff),
+		 (byte) ((data >> 40) & 0xff),
+		 (byte) ((data >> 32) & 0xff),
+		 (byte) ((data >> 24) & 0xff),
+		 (byte) ((data >> 16) & 0xff),
+		 (byte) ((data >> 8) & 0xff),
+		 (byte) ((data >> 0) & 0xff),
+		 };
 		}
-
-		System.out.println(i + "*" + j + "=" + i * j);
-		multitable(i, j + 1);
-	}
-
-	private static void multitable2() {
-		for(int i = 1 ; i <= 9 ; i ++) {
-			for(int j = 1 ; j <= 9 ; j ++)
-				System.out.println(i + "*" + j + "=" + i * j);
-		}
-	}
 	
 }
