@@ -3,8 +3,8 @@ package leetcode;
 public class ConvertSortedArrayToBinarySearchTree {
 
 	public static void main(String[] args) {
-		int nums[] = {0, 1, 2, 3, 4, 5, 6};
-//		int nums[] = {-10, -3, 0, 5, 9};
+//		int nums[] = {0, 1, 2, 3, 4, 5, 6};
+		int nums[] = {-10, -3, 0, 5, 9};
 		
 		convertSortedArrayToBinarySearchTree(nums);
 	}
@@ -30,18 +30,17 @@ public class ConvertSortedArrayToBinarySearchTree {
 	
 	private static TreeNode convertSortedArrayToBinarySearchTree(int[] nums) {
 		int mid = nums.length / 2;
-		return append(0, nums.length - 1, mid, nums, new TreeNode(nums[mid]));
+		return append(0, nums.length - 1, mid, nums);
 	}
 	
-	private static TreeNode append(int begin, int end, int mid, int[] nums, TreeNode root) {
-		if(begin >= end)
+	private static TreeNode append(int begin, int end, int mid, int[] nums) {
+		if(begin > end)
 			return null;
-        
-        if(begin <= mid - 1)
-		    root.left = append(begin, mid - 1, mid / 2, nums, new TreeNode(nums[mid / 2]));
-        
-        if(mid + 1 <= end)
-            root.right = append(mid + 1, end, (mid + 1 + end) / 2, nums, new TreeNode(nums[(mid + 1 + end) / 2]));
+
+		var root = new TreeNode(nums[mid]);
+		
+		root.left = append(begin, mid - 1, (begin + mid - 1) / 2, nums);
+		root.right = append(mid + 1, end, (mid + end + 1) / 2, nums);
 		
 		return root;
 	}
