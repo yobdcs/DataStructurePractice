@@ -6,6 +6,7 @@ import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Queue;
 import java.util.Set;
 import java.util.Stack;
 
@@ -103,10 +104,13 @@ public class AdjacencyList {
 	}
 	
 	public void dfsIterative(String str) {
+		if(vertex.get(str) == null)
+			return;
+		
 		Stack<String> stack = new Stack<String>();
 		Set<String> set = new HashSet<String>();
-		stack.push(str);
 		
+		stack.push(str);
 		while(!stack.isEmpty()) {
 			str = stack.pop();
 			if(set.contains(str))
@@ -120,6 +124,41 @@ public class AdjacencyList {
 					stack.push(n.label);
 			}
 		}
+	}
+	
+	public void bfsIterative(String str) {
+		if(vertex.get(str) == null)
+			return;
+		
+		Queue<String> queue = new LinkedList<String>();
+		Set<String> set = new HashSet<String>();
+		
+		queue.add(str);
+		while(!queue.isEmpty()) {
+			str = queue.poll();
+			if(set.contains(str))
+				continue;
+			
+			System.out.println(str);
+			set.add(str);
+			
+			if(graph.get(vertex.get(str)).size() != 0) {
+				for(var n : graph.get(vertex.get(str)))
+					queue.add(n.label);
+			}				
+		}
+	}
+	
+	public List<String> topologicalSort(String str) {
+		List<String> list = new ArrayList<String>();
+		Stack<String> stack = new Stack<String>();
+		
+		topologicalSort(str, list, stack);
+		return list;
+	}
+
+	private void topologicalSort(String str, List<String> list, Stack<String> stack) {
+		
 	}
 	
 }

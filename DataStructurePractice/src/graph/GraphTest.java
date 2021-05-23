@@ -7,17 +7,25 @@ public class GraphTest {
 //		AdjacencyMatrix g = new AdjacencyMatrix();
 		AdjacencyList g = new AdjacencyList();
 
+//		g.addNode("A");
+//		g.addNode("B");
+//		g.addNode("C");
+//		g.addNode("D");
+//		g.addEdge("A","B");
+//		g.addEdge("A","C");
+//		g.addEdge("B","D");
+//		g.addEdge("D","C");
+		
+		g.addNode("X");
 		g.addNode("A");
 		g.addNode("B");
-		g.addNode("C");
-		g.addNode("D");
+		g.addNode("P");
+		g.addEdge("X", "A");
+		g.addEdge("X", "B");
+		g.addEdge("A", "P");
+		g.addEdge("B", "P");
 		
-		g.addEdge("A","B");
-		g.addEdge("A","C");
-		g.addEdge("B","D");
-		g.addEdge("D","C");
 //		g.removeEdge("C", "B");
-		
 //		g.removeNode("D");
 		
 //		g.test();
@@ -25,7 +33,10 @@ public class GraphTest {
 		
 		System.out.println("----------");
 //		g.dfsRecursive("A");
-		g.dfsIterative("A");
+//		g.dfsIterative("A");
+//		g.bfsIterative("X");
+		
+		
 	}
 
 }
