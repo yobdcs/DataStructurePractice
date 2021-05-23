@@ -10,16 +10,22 @@ public class GraphTest {
 		g.addNode("A");
 		g.addNode("B");
 		g.addNode("C");
+		g.addNode("D");
 		
 		g.addEdge("A","B");
 		g.addEdge("A","C");
-		g.addEdge("B","A");
-//		g.removeEdge("A", "B");
+		g.addEdge("B","D");
+		g.addEdge("D","C");
+//		g.removeEdge("C", "B");
 		
-//		g.removeNode("C");
+//		g.removeNode("D");
 		
 //		g.test();
 		g.print();
+		
+		System.out.println("----------");
+//		g.dfsRecursive("A");
+		g.dfsIterative("A");
 	}
 
 }
