@@ -1,4 +1,4 @@
-package graph;
+package directedGraph;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -49,7 +49,6 @@ public class AdjacencyList {
 			if(flag)
 				vertex.put(s, vertex.get(s) - 1);
 		}	
-
 		graph.remove((int)vertex.get(str));
 
 		vertex.remove(str);
@@ -61,7 +60,6 @@ public class AdjacencyList {
 			if(n.label.equals(from))
 				return;
 		}
-		
 		graph.get(vertex.get(from)).add(new Node(to));
 	}
 	
@@ -82,7 +80,7 @@ public class AdjacencyList {
 		if(list.isEmpty())
 			continue;
 		
-		System.out.println(s + " is connected with " + list.toString());
+		System.out.println(s + " is connected with " + list);
 		}
 	}
 	
@@ -150,15 +148,55 @@ public class AdjacencyList {
 	}
 	
 	public List<String> topologicalSort(String str) {
-		List<String> list = new ArrayList<String>();
-		Stack<String> stack = new Stack<String>();
+		if(vertex.get(str) == null)
+			return null;
 		
-		topologicalSort(str, list, stack);
+		Stack<String> stack = new Stack<String>();
+		List<String> list = new ArrayList<String>();
+		
+		topologicalSort(str, stack, new HashSet<String>());
+		while(!stack.isEmpty())
+			list.add(stack.pop());
+		
 		return list;
 	}
 
-	private void topologicalSort(String str, List<String> list, Stack<String> stack) {
+	private void topologicalSort(String str, Stack<String> stack, Set<String> set) {
+		if(set.contains(str) || vertex.get(str) == null)
+			return;
 		
+		set.add(str);
+		
+		if(graph.get(vertex.get(str)).size() != 0) {
+			for(Node n : graph.get(vertex.get(str)))
+				topologicalSort(n.label, stack, set);
+		}
+		stack.push(str);
+	}
+	
+	public boolean hasCycle() {
+		for(String key : vertex.keySet()) {
+			if(hasCycle(key, new HashSet<String>(), new HashSet<String>()))
+				return true;
+		}
+		return false;
+	}
+
+	private boolean hasCycle(String str, Set<String> visiting, Set<String> visited) {
+		if(visiting.contains(str))
+			return true;
+		
+		visiting.add(str);
+		
+		if(graph.get(vertex.get(str)).size() != 0) {
+			for(Node n : graph.get(vertex.get(str))) {
+				if(hasCycle(n.label, visiting, visited))
+					return true;	
+			}
+		}
+		visited.add(str);
+		visiting.remove(str);
+		return false;
 	}
 	
 }

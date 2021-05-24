@@ -1,4 +1,4 @@
-package graph;
+package directedGraph;
 
 import java.util.ArrayList;
 import java.util.HashMap;
