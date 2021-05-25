@@ -11,7 +11,7 @@ public class PascalTriangle {
 	 */
 	
 	public static void main(String[] args) {
-		System.out.println(pascalTriangle(6));
+		System.out.println(pascalTriangle(7));
 	}
 
 	private static List<List<Integer>> pascalTriangle(int numRows){
