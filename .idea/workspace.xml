@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f0f0c94d-0e56-47a9-b190-183ed2d4adba" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/bin/Factorial.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Factorial.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/HashMapTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/HashMapTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/HashSetTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/HashSetTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Palindrome.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Palindrome.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/PriorityQTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/PriorityQTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/ReverseArray.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/ReverseArray.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Test.class" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1rt5R0ZA8jAj6WENI20NJkSTeZP" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Java" />
+  </component>
+  <component name="RunManager">
+    <configuration name="StringTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="stringManipulation.StringTest" />
+      <module name="DataStructurePractice" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="stringManipulation.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.StringTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f0f0c94d-0e56-47a9-b190-183ed2d4adba" name="Default Changelist" comment="" />
+      <created>1619782535411</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1619782535411</updated>
+    </task>
+    <servers />
+  </component>
+</project>
