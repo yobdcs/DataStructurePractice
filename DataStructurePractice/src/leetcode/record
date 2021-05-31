@@ -1,3 +1,9 @@
+2021/5/31
+#141 Linked List Cycle
+#144 Binary Tree Preorder Traversal
+#145 Binary Binary Tree Postorder Traversal ------ (iteration : linkedlist addFirst)
+#155 Min Stack ------ (array, 1or2 stack(s), singly linkedList, wrapper and 1 stack)
+
 2021/5/30
 #122 Best Time to Buy and Sell Stock II ------ (!!)
 #125 Valid Palindrome ------ (regular expression example)
