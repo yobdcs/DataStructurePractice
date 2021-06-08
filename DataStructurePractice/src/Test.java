@@ -1,24 +1,20 @@
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStream;
 
 public class Test {
-
+	
+	
 	public static void main(String[] args) {
+		String s1 = "D:\\projects\\test\\01.flac";
+		String s2 = "D:\\projects\\test\\02.mp3";
+		String s3 = "D:\\projects\\test\\99.mp3";
+		
 		InputStreamTest ist = new InputStreamTest();
 		
 		try {
-			InputStream is1 = new FileInputStream("E:\\test01.jpg");
-			InputStream is2 = new FileInputStream("E:\\test02.jpg");
-			
-			System.out.println(is1.readAllBytes().length);
-			System.out.println(is2.readAllBytes().length);
-			
+			ist.testMerge(s1, s2, s3);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
 	}
 	
 //	private static byte[] longtoBytes(long data) {

@@ -21,7 +21,7 @@ public class TwoSumII_InputArrayIsSorted {
 		int[] numbers = {2, 7, 11, 15};
 		int target = 22;
 
-		System.out.println(Arrays.toString(twoSumII_InputArrayIsSorted4(numbers, target)));
+		System.out.println(Arrays.toString(twoSumII_InputArrayIsSorted(numbers, target)));
 	}
 
 	private static int[] twoSumII_InputArrayIsSorted(int[] numbers, int target) {
@@ -66,8 +66,8 @@ public class TwoSumII_InputArrayIsSorted {
 		return null;
 	}
 	
-	private static int[] twoSumII_InputArrayIsSorted4(int[] numbers, int target) {
-		//binary search
-	}
+//	private static int[] twoSumII_InputArrayIsSorted4(int[] numbers, int target) {
+//		//binary search
+//	}
 	
 }

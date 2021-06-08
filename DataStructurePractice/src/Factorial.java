@@ -3,11 +3,11 @@ public class Factorial {
 
 	public static void main(String[] args) {
 		
-//		int i = 4;
+		int i = 13;
 //		System.out.println(factorialSIM(i));
-//		System.out.println(factorial(i));
+		System.out.println(factorial(i));
 
-		System.out.println(perfertTree(4 , 0));
+//		System.out.println(perfertTree(4 , 0));
 	}
 
 	public static int factorialSIM(int f) {
