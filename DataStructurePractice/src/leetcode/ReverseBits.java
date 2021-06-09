@@ -8,8 +8,9 @@ public class ReverseBits {
 	public static void main(String[] args) {
 //		int n = 43261596;
 		int n = -3;
+//		int n = 1;
 		
-		System.out.println(reverseBits2(n));
+		System.out.println(reverseBits3(n));
 	}
 
 	private static int reverseBits(int n) {
@@ -32,13 +33,13 @@ public class ReverseBits {
 			sb.append(1);
 		else
 			sb.append(0);
-		
+
 		int digit = 1;
 		for(int j = sb.length() - 1 ; j > 0 ; j --) {
 			i += Character.getNumericValue(sb.charAt(j)) * digit;
 			digit *= 2;
 		}
-	
+
 		if(sb.charAt(0) == '1')
 			return -((i - 1) ^ Integer.MAX_VALUE);
 		
@@ -46,7 +47,39 @@ public class ReverseBits {
 	}
 	
 	private static int reverseBits2(int n) {
-		return Integer.reverse(n);
+		StringBuilder sb = new StringBuilder();
+
+		int i = 0;
+		while(i < 32) {
+			sb.append(n & 1);
+
+			n >>>= 1;
+			i ++;
+		}
+	
+		i = 1;
+		for(int j = sb.length() - 1 ; j > 0 ; j --) {
+			if(sb.charAt(j) == '1')
+				n += i;
+			
+			i <<= 1;
+		}
+	
+		if(sb.charAt(0) == '1')
+			return -((n - 1) ^ Integer.MAX_VALUE);
+		
+		return n;
+	}
+	
+	private static int reverseBits3(int n) {
+		int ans = 0, i = 0;
+		while(i < 32) {
+			ans <<= 1;
+			ans |= (n & 1);
+			n >>>= 1;
+			i += 1;
+		}
+		return ans;
 	}
 	
 }
