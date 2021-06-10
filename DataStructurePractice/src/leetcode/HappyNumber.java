@@ -19,24 +19,21 @@ public class HappyNumber {
 	
 	public static void main(String[] args) {
 //		int n = 19;
-		int n = 84;
+		int n = 7;
 
 		System.out.println(happyNumber(n));
 	}
 	
 	private static boolean happyNumber(int n) {
 		int temp = 0;
-		while(n != 0) {
+		while(n > 0) {
 			temp += (n % 10) * (n % 10);
 			n /= 10;
 		}
 
-		if(temp / 10 == 0) {	
-			if(temp == 1 || temp == 7)
-				return true;
+		if(temp / 10 == 0) 
+			return temp == 1 || temp == 7;
 			
-			return false;
-		}
 		return happyNumber(temp);
 	}
 
