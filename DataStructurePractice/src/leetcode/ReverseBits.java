@@ -77,7 +77,7 @@ public class ReverseBits {
 			ans <<= 1;
 			ans |= (n & 1);
 			n >>>= 1;
-			i += 1;
+			i ++;
 		}
 		return ans;
 	}
